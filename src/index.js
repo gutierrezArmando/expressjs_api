@@ -1,4 +1,4 @@
-// Bibliografia
+// Recursos
 // https://arjunphp.com/creating-restful-api-express-js-node-js-mysql/
 // https://www.youtube.com/watch?v=pz_4UOHq594&list=PLEw4347lfIFG8mL96p2metxqBa0LsL8MC&index=2
 // https://www.youtube.com/watch?v=FBguazxFbVo&index=3&list=PLEw4347lfIFG8mL96p2metxqBa0LsL8MC
@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 /*Configuracion de puerto*/
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 80);
 
 
 /*Configuracion para el soporte de request*/
@@ -27,6 +27,9 @@ app.use(function(req, res, next){
     res.header('Access-Control-Allow-Headers','Content-Type');
     next();
 });
+
+/*Para el uso de archivo estaticos, dentro del directorio views*/
+app.use(express.static(__dirname + '/views'));
 
 /*setup engine view*/
 app.set('views', path.join(__dirname,'views'));
