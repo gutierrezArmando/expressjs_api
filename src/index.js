@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const conection = require('../database/dbConf');
 const cors = require('cors');
 
+const privilegios = require('./rutas/privilegios');
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -31,6 +33,9 @@ app.use(function(req, res, next){
 //     res.header('Access-Control-Allow-Headers', 'Content-Type');
 //     next();
 // });
+
+
+app.use('/privilegios', privilegios);
 
 app.get('/', function (req, res) {
     return res.send('<h1>Titulo 1</h1><p>Este es un parrafo 1</p>')
