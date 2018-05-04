@@ -5,19 +5,22 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');/*Necesario para la configuracion del view engine*/
+
 
 const privilegios = require('./rutas/privilegios');
 const usuarios = require('./rutas/usuarios');
 
 
 const app = express();
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-
+/*Configuracion de puerto*/
 app.set('port', process.env.PORT || 3000);
 
+
+/*Configuracion para el soporte de request*/
 app.use(function(req, res, next){
     res.header('Access-Control-Allow-Origin',"*");
     res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
@@ -25,12 +28,18 @@ app.use(function(req, res, next){
     next();
 });
 
+/*setup engine view*/
+app.set('views', path.join(__dirname,'views'));
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+
+
 app.use('/privilegios', privilegios);
 app.use('/API/usuarios', usuarios);
 
-/*app.get('/', function (req, res) {
-    return res.send('<h1>Titulo 1</h1><p>Este es un parrafo 1</p>')
-});*/
+app.get('/', function (req, res) {
+    res.render('index');
+});
 
 
 app.all('*', function (req, res, next) {
