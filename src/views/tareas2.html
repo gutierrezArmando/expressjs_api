@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="plugins\bootstrap-3.3.7-dist\css\bootstrap.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+    <nav class="navbar-header navbar-brand">Tareas por hacer</nav>
+</nav>
+<div class="container">
+    <!-- Fila para el formulario de captura de nueva tarea -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="txtDescripcion" class="control-label">Descripcion:</label>
+                <input id="txtDescripcion" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="txtDetalle" class="control-label">Detalle:</label>
+                <input id="txtDetalle" type="text" class="form-control">
+            </div>
+            <buttton id="btnNuevaTarea" class="btn btn-primary pull-right">
+                Agregar
+                <span class="glyphicon glyphicon-inbox"></span>
+            </buttton>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="pull-right">Lista de Tareas</h1>
+        </div>
+    </div>
+    <!-- Fin del formulario de captura de la nueva tarea -->
+    <!-- Fila para mostrar la lista de tareas -->
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <th>Descripcion</th>
+                    <th>Detalle</th>
+                    <th>Estado</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody id="IDtbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Fin del la sección para la tabla de la lista de tareas  -->
+</div>
+<script src="plugins\jquery\jquery-3.3.1.js"></script>
+<script src="plugins\bootstrap-3.3.7-dist\js\bootstrap.min.js"></script>
+<script src="scripts\scriptTareas2.js"></script>
+</body>
+</html>

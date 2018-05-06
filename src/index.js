@@ -10,7 +10,7 @@ const path = require('path');/*Necesario para la configuracion del view engine*/
 
 const privilegios = require('./rutas/privilegios');
 const usuarios = require('./rutas/usuarios');
-
+const tareas = require('./rutas/tareas');
 
 const app = express();
 app.use(bodyParser.json());
@@ -19,14 +19,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 /*Configuracion de puerto*/
 app.set('port', process.env.PORT || 80);
 
-
-/*Configuracion para el soporte de request*/
-app.use(function(req, res, next){
-    res.header('Access-Control-Allow-Origin',"*");
-    res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers','Content-Type');
+/*Soporte de request*/
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    /*Linea agregada para que aceptara el metodo PUT*/
+    res.header("Access-Control-Allow-Methods","GET, POST, OPTIONS, PUT, PATCH, DELETE");
     next();
 });
+
 
 /*Para el uso de archivo estaticos, dentro del directorio views*/
 app.use(express.static(__dirname + '/views'));
@@ -39,9 +40,15 @@ app.set('view engine', 'html');
 
 app.use('/privilegios', privilegios);
 app.use('/API/usuarios', usuarios);
+app.use('/API/tareas', tareas);
 
 app.get('/', function (req, res) {
     res.render('index');
+});
+
+
+app.get('/tareas', function (req, res) {
+   res.render('tareas');
 });
 
 

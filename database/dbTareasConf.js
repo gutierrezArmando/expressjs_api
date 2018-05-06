@@ -5,7 +5,7 @@ const dbContection = mysql.createConnection({
     host: 'localhost',
     user: 'armando',
     password: 'jagn@plexy',
-    database: 'despacho'
+    database: 'dbtareas'
 });
 
 module.exports = dbContection;
