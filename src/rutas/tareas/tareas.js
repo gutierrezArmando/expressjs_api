@@ -1,5 +1,5 @@
 const express = require('express');
-const conection = require('../../database/dbTareasConf');
+const conection = require('../../../database/dbTareasConf');
 const app = express.Router();
 
 

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API Money Express</title>
+    <link rel="stylesheet" href="plugins\bootstrap-3.3.7-dist\css\bootstrap.min.css">
+    <style>
+        tr{
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse">
+        <div class="navbar-brand navbar-header">
+            Money Express API
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <div style="margin: 10px;">
+                    <label class="center-block" style="font-size: 30px; text-align: center">Money Express</label>
+                    <img src="images/nodejsLogo.png"
+                         alt="NodejsLogo"
+                         class="img-responsive center-block"
+                         style="max-height: 70px;">
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <p class="center-block"
+                   style="font-size: x-large; margin-top: 20px;">
+                    REST API creada con express js y con el gestor de base de datos de Mysql</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <p style="text-align: center; font-size: large">Para probar la API abrir consola y ejecutar las funciones según corresponda</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>Sucursales</h3>
+                <table class="table-striped table-hover table-bordered" style="width: 100%;">
+                    <tr>
+                        <td>Operacion</td>
+                        <td>Funcion</td>
+                        <td>Url</td>
+                    </tr>
+                    <tr>
+                        <td>Busqueda de sucursal</td>
+                        <td>getSucursal('A1','123456')</td>
+                        <td><%= urlSucursal %></td>
+                    </tr>
+                </table>
+                <button class="btn btn-primary" id="btnPrueba">Probar</button>
+                <label class="control-label" id="lblSucursal">La sucursal es:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>Usuarios</h3>
+                <table class="table-striped table-hover table-bordered" style="width: 100%;">
+                    <tr>
+                        <td>Operacion</td>
+                        <td>Funcion</td>
+                        <td>Url</td>
+                    </tr>
+                    <tr>
+                        <td>Busqueda de usuario</td>
+                        <td>getUsuario('1003','123456')</td>
+                        <td><%= urlUsuario %></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>Operaciones</h3>
+                <table class="table-striped table-hover table-bordered" style="width: 100%;">
+                    <tr>
+                        <td>Operacion</td>
+                        <td>Funcion</td>
+                        <td>Url</td>
+                    </tr>
+                    <tr>
+                        <td>Agregar Operacion</td>
+                        <td>addOperacion(2, 2, 2, '987654321', 18.00003, 20, 280, 50, 30)<br>
+                            addOperacion(id_sucursal, id_cajero, tipo_operacion, num_folio, t_cambio, cant_dolares, cant_pesos, cant_recibido, cant_cambio)
+                        </td>
+                        <td><%= urlOperaciones %>/add</td>
+                    </tr>
+                    <tr>
+                        <td>Obtener todas las operaciones</td>
+                        <td>getOperacionesPorDia('2018-05-10')<br>
+                            getOperacionesPorDia('aaaa-mm-dd')
+                        </td>
+                        <td><%= urlOperaciones %></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="plugins\jquery\jquery-3.3.1.js"></script>
+    <script src="plugins\bootstrap-3.3.7-dist\js\bootstrap.min.js"></script>
+    <script src="scripts/moneyExpress/scriptME.js"></script>
+</body>
+</html>

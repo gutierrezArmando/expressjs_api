@@ -2,10 +2,10 @@ var obj_json;
 
 var tareasCliente=[];
 
-var urlTareas = "http://juridicosoto.sytes.net/API/tareas";
 //var urlTareas = "http://juridicosoto.sytes.net:3000/API/tareas";
 //var urlTareas = "http://192.168.1.70:3000/API/tareas";
-//var urlTareas = "http://192.168.1.70/API/tareas";
+// var urlTareas = "http://192.168.1.70/API/tareas";
+var urlTareas = "http://localhost/API/tareas";
 
 $(document).ready(function(){
     console.log("Se inicio");

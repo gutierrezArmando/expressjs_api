@@ -2,11 +2,10 @@ const  mysql = require('mysql');
 
 const dbContection = mysql.createConnection({
     // host: 'juridicosoto.sytes.net',
-    // host: 'localhost',
-    host: '192.168.1.70',
-    user: 'armando',
-    password: 'jagn@plexy',
-    database: 'dbtareas'
+    host: '104.238.82.226',
+    user: 'dexpress_dev',
+    password: 'pBWxtOqgColK11mDrZ',
+    database: 'dexpress_pruebas'
 });
 
 module.exports = dbContection;

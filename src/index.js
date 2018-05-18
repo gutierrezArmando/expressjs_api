@@ -8,9 +8,13 @@ const bodyParser = require('body-parser');
 const path = require('path');/*Necesario para la configuracion del view engine*/
 
 
-const privilegios = require('./rutas/privilegios');
-const usuarios = require('./rutas/usuarios');
-const tareas = require('./rutas/tareas');
+const privilegios = require('./rutas/tareas/privilegios');
+const usuarios = require('./rutas/tareas/usuarios');
+const tareas = require('./rutas/tareas/tareas');
+
+const usuariosMoney = require('./rutas/moneyExpress/usuarios');
+const sucursalesMoney = require('./rutas/moneyExpress/sucursales');
+const operacionesMoney = require('./rutas/moneyExpress/operaciones');
 
 const app = express();
 app.use(bodyParser.json());
@@ -38,9 +42,14 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 
-app.use('/privilegios', privilegios);
-app.use('/API/usuarios', usuarios);
+//app.use('/privilegios', privilegios);
+//app.use('/API/usuarios', usuarios);
 app.use('/API/tareas', tareas);
+
+app.use('/API/moneyExpress/usuarios', usuariosMoney);
+app.use('/API/moneyExpress/sucursal', sucursalesMoney);
+app.use('/API/moneyExpress/operaciones', operacionesMoney);
+
 
 app.get('/', function (req, res) {
     res.render('index');
@@ -49,6 +58,14 @@ app.get('/', function (req, res) {
 
 app.get('/tareas', function (req, res) {
    res.render('tareas');
+});
+
+app.get('/moneyExpress', function (req, res) {
+    res.render('moneyExpress', {
+        urlSucursal:"http://localhost/API/moneyExpress/sucursal",
+        urlUsuario: "http://localhost/API/moneyExpress/usuarios",
+        urlOperaciones: "http://localhost/API/moneyExpress/operaciones"
+    });
 });
 
 

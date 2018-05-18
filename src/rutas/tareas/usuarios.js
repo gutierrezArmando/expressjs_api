@@ -1,5 +1,5 @@
 const express = require('express');
-const conection = require('../../database/dbConf');
+const conection = require('../../../database/dbConf');
 const app = express.Router();
 
 /*Para desplegar todos los usuarios*/

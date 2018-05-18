@@ -1,10 +1,15 @@
+/*Este escrip deb se exactamente igual, el scriptTareas, solo que la diferencia existe
+* en el url, ya que debe contener la url con el nombre de dns y no por IP,
+* o local host*/
+
 var obj_json;
 
 var tareasCliente=[];
 
+var urlTareas = "http://juridicosoto.sytes.net/API/tareas";
 //var urlTareas = "http://juridicosoto.sytes.net:3000/API/tareas";
 //var urlTareas = "http://192.168.1.70:3000/API/tareas";
-var urlTareas = "http://192.168.1.70/API/tareas";
+//var urlTareas = "http://192.168.1.70/API/tareas";
 
 $(document).ready(function(){
     console.log("Se inicio");
